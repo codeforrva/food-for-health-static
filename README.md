@@ -9,3 +9,5 @@ The ultimate objective is to support more healthy eating habits among recipients
 #### Status
 This project is currently in prototype / proof of concept status.
 
+## How
+This application is driven by data provided by the Richmond City Health District (RCHD). The data was imported from XLS files provided by RCHD and imported into Google docs. The application itself is written in Javascript with connections to the Google Maps API to display results in map format.
