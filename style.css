@@ -15,14 +15,6 @@
 .col-2 {width : 16.67%;}
 .col-1 {width : 8.33%;}
 
-ul {
-    list-style-type: none;
-    color: #3399FF;
-    margin: 0;
-    float: left;
-    padding: 10;
-}
-
 /* unvisited link */
 a:link {
     color: #3399FF;
@@ -43,3 +35,42 @@ a:active {
     color: #FF9900;
 }
 
+.wrapper {
+    width : 80%;
+    background-color : #EBD0BF;
+    margin : 0 auto;
+    font-family: Arial, serif;
+    height : 100%;
+}
+
+.titlebar {
+    background-color : #EBD0BF;
+    color : #DD3D31;
+    padding : 10;
+    font-weight : bold;
+    font-size: 48pt;
+}
+
+.btn {
+    background : blue;
+}
+
+
+#searchButton {
+    width : 10%;
+    text-align : center;
+    background: #86A6BF;
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+#searchButton:hover {
+    background: #BB7B95;
+    text-decoration: none;
+}
