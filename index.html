@@ -4,6 +4,37 @@
   <title>Where to use SNAP, WIC, & DUFB in RVA</title>
   <meta charset="utf-8" />
   <link href="style.css" rel="stylesheet">
+
+  <!--Tabletop-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.2/tabletop.js"></script>
+
+  <!--JQuery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <script type="text/javascript">
+  	 window.onload = function() { init() };
+
+	  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1uu1PfCjgIrIVqzFoCN8iildL2yBYBfdR_4VEdf198tc/pubhtml';
+
+	  function init() {
+	    Tabletop.init( { key: public_spreadsheet_url,
+	                     callback: showInfo,
+	                     simpleSheet: true } )
+	  }
+
+	  function showInfo(data, tabletop) {
+	    alert("Successfully processed!")
+	    console.log(data);
+
+	    for (i=0; i&<dataLength; i++) {
+	        $('').append(
+	          $('<li>', {
+	            text: data[i].politician + ', ' + data[i].position
+	          })
+	        );
+	      }
+	  	}
+  </script>
 </head>
 <body>
 
@@ -16,33 +47,33 @@
    </div>
 
     <div class="navbar">
-      <div class="map-button">
+      <div id="mapButton">
         Map
       </div>
-      <div class="list-button">
+      <div id="listButton">
         List
       </div>
     </div>
 
   </header>
 
-  <div class="main-panel">
-    <div class="map-panel">
-      <div class="search-button">
+  <div id="mainPanel">
+    <div id="mapPanel">
+      <div id="searchButton">
         Q
       </div>
-      <div class="mylocation-button">
+      <div id="myLocationButton">
         O
       </div>
-      <div class="map"></div>
+      <div id="map"></div>
     </div>
-    <div class="list-panel">
+    <div id="listPanel">
       <div class="filter-button">
         <div class="filter-option">Option 1</div>
         <div class="filter-option">Option 2</div>
         <div class="filter-option">Option 3</div>
       </div>
-      <ul class="vendor-list">
+      <ul id="vendorList">
         <li class="vendorlisting">Vendor 1</li>
         <li class="vendorlisting">Vendor 2</li>
         <li class="vendorlisting">Vendor 3</li>
