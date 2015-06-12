@@ -102,7 +102,9 @@
 
 	     // For Map View
 	     for (i=0; i<dataLength; i++) {
-	    	addMarker(new google.maps.LatLng(data[i].Lat, data[i].Lon));
+	    	addMarker(new google.maps.LatLng(data[i].Lat, data[i].Lon),
+	    		'Shruti');
+	     	
 	     }
 	     
 	     
@@ -132,11 +134,23 @@ function initialize() {
 }
 
 // Add a marker to the map and push to the array.
-function addMarker(location) {
+function addMarker(location, windowContent) {
+	// Create marker on map
   var marker = new google.maps.Marker({
     position: location,
     map: map
   });
+
+  // Create infowindow for marker
+  var infowindow = new google.maps.InfoWindow({
+      content: windowContent
+  });
+
+  // Attach openning the InfoWindow to clicking the marker
+   google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
 }
-  </script>
+
+</script>
 </html>
