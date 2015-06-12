@@ -102,8 +102,13 @@
 
 	     // For Map View
 	     for (i=0; i<dataLength; i++) {
-	    	addMarker(new google.maps.LatLng(data[i].Lat, data[i].Lon),
-	    		'Shruti');
+	     	var infoMarkerContent = "<li class='vendorlisting'>"
+	    									+ data[i].Name
+	    									+ "<br>"
+	    									+ data[i].Address
+	    									+ "</li>";
+	    	addMarker(new google.maps.LatLng(data[i].Lat, data[i].Lon), 
+	    		infoMarkerContent);
 	     	
 	     }
 	     
