@@ -3,16 +3,27 @@
 <head>
   <title>Where to use SNAP, WIC, & DUFB in RVA</title>
   <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <link href="style.css" rel="stylesheet">
 
   <!--Tabletop-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.2/tabletop.js"></script>
 
+  <!--Google Map-->
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+
   <!--JQuery
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   -->
 
-  
+   <style>
+      #mapCanvas {
+        height: 300px;
+        width: 600px;
+        margin: 0px;
+        padding: 0px`
+      }
+    </style>
 </head>
 <body>
 
@@ -43,7 +54,7 @@
       <div id="myLocationButton">
         O
       </div>
-      <div id="map"></div>
+      <div id="mapCanvas"></div>
     </div>
     <div id="listPanel">
       <div class="filter-button">
@@ -52,11 +63,7 @@
         <div class="filter-option">Option 3</div>
       </div>
       <ul id="vendorList">
-        <li class="vendorlisting">Vendor 1</li>
-        <li class="vendorlisting">Vendor 2</li>
-        <li class="vendorlisting">Vendor 3</li>
-        <li class="vendorlisting">Vendor 4</li>
-        <li class="vendorlisting">Vendor 5</li>
+      		<!--This will be filed in by the data pulled in from the spreadsheet-->
       </ul>
     </div>
   </div>
@@ -64,7 +71,7 @@
 
 </body>
 <script type="text/javascript">
-  	 window.onload = function() { init() };
+  	  window.onload = function() { initialize(); init();};
 
 	  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1uu1PfCjgIrIVqzFoCN8iildL2yBYBfdR_4VEdf198tc/pubhtml';
 
@@ -78,12 +85,12 @@
 	    //alert("Successfully processed!")
 	    console.log(data);
 
+	    // For List View
 	    var dataLength = data.length;
 
 	    var list = document.getElementById('vendorList');
 	    
 	    for (i=0; i<dataLength; i++) {
-
 	    	list.innerHTML = list.innerHTML + "<li class='vendorlisting'>"
 	    									+ data[i].Name
 	    									+ "<br>"
@@ -91,13 +98,45 @@
 	    									+ "</li>";
 
 
-
-	        // $('#vendorList').append(
-	        //   $('<li>', {
-	        //     text: data[i].Name + ', ' + data[i].Address
-	        //   })
-	        // );
 	     }
+
+	     // For Map View
+	     for (i=0; i<dataLength; i++) {
+	    	addMarker(new google.maps.LatLng(data[i].Lat, data[i].Lon));
+	     }
+	     
+	     
 	  }
+
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see a blank space instead of the map, this
+// is probably because you have denied permission for location sharing.
+
+var map;
+
+function initialize() {
+	console.log("starting to create a google map");
+
+  var latlng = new google.maps.LatLng(37.4434800,-77.4653300);
+  var mapOptions = {
+    zoom: 11,
+    center:latlng,
+            //backgroundColor: '#ff0000',
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            //imageDefaultUI: true
+  };
+  map = new google.maps.Map(document.getElementById('mapCanvas'),
+      mapOptions);
+
+  console.log(map);
+}
+
+// Add a marker to the map and push to the array.
+function addMarker(location) {
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map
+  });
+}
   </script>
 </html>
