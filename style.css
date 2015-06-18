@@ -1,10 +1,11 @@
 	
 [class*='col-'] {
-    float: left;
+
 }
+
 .col-12 {width : 100%;}
 .col-11 {width : 91.67%;}
-.col-10 {width : 83.33%; position : center}
+.col-10 {width : 83.33%; margin : auto;}
 .col-9 {width : 75%;}
 .col-8 {width : 66.67%;}
 .col-7 {width : 58.33%;}
@@ -14,6 +15,11 @@
 .col-3 {width : 25%;}
 .col-2 {width : 16.67%;}
 .col-1 {width : 8.33%;}
+
+html, body{
+    margin:0;
+    padding:0;
+}
 
 /* unvisited link */
 a:link {
@@ -36,28 +42,57 @@ a:active {
 }
 
 .wrapper {
-    width : 80%;
-    background-color : #EBD0BF;
-    margin : 0 auto;
     font-family: Arial, serif;
     height : 100%;
+    margin : 0;
+    padding : 0;
+}
+
+
+#header {
+    display : block;
+    margin : 0 auto;
+    padding : 5px;
 }
 
 .titlebar {
-    background-color : #EBD0BF;
     color : #DD3D31;
     padding : 10;
+    float : left;
     font-weight : bold;
-    font-size: 48pt;
+    font-size: 3em;
 }
+
+.navbar {
+    float : right;
+    margin : 0 auto;
+}
+
+#mainPanel {
+    background-color : #EBD0BF;
+    float :left;
+    display : block;
+    margin : 0px;
+    padding : 5px;
+}
+
 
 .btn {
     background : blue;
 }
 
+#mapButton {
+    display : inline;
+}
 
-#searchButton {
-    width : 10%;
+#listButton {
+    display : inline;
+}
+
+#Button {
+    display : inline;
+    width : 150px;
+    margin: 8px;
     text-align : center;
     background: #86A6BF;
     -webkit-border-radius: 28;
@@ -65,12 +100,19 @@ a:active {
     border-radius: 28px;
     font-family: Arial;
     color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    font-size: 1.1em;
+    padding: 3px 6px 3px 6px;
     text-decoration: none;
 }
 
-#searchButton:hover {
+#Button:hover {
     background: #BB7B95;
     text-decoration: none;
+}
+
+#mapCanvas {
+    height: 300px;
+    width: 600px;
+    margin: 10px auto;
+    padding: 0px;
 }

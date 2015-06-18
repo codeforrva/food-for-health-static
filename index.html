@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Where to use SNAP, WIC, & DUFB in RVA</title>
+  <title>Where to use SNAP, WIC, &amp; DUFB in RVA</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <link href="style.css" rel="stylesheet">
@@ -15,48 +15,39 @@
   <!--JQuery
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   -->
-
-   <style>
-      #mapCanvas {
-        height: 300px;
-        width: 600px;
-        margin: 0px;
-        padding: 0px`
-      }
-    </style>
 </head>
 <body>
 
 <div class="wrapper">
 
-  <header>
-
-   <div class="titlebar">
+  <header id = "header" class = "col-10">
+   <div class="titlebar col-7">
      Food for Health RVA
    </div>
 
-    <div class="navbar">
+    <div class="navbar col-3">
       <div id="mapButton">
         Map
       </div>
       <div id="listButton">
         List
       </div>
-    </div>t
+    </div>
 
   </header>
 
-  <div id="mainPanel">
-    <div id="mapPanel">
-      <div id="searchButton">
-        Q
+  <div id="mainPanel" class = "col-12">
+    <div id="mapPanel" class="col-10">
+        Find Healthy Food Near You
+      <div id="Button">
+        Search
       </div>
-      <div id="myLocationButton">
-        O
+      <div id="Button">
+        Use My Location
       </div>
-      <div id="mapCanvas"></div>
+      <div id="mapCanvas" class = "col-10"></div>
     </div>
-    <div id="listPanel">
+    <div id="listPanel" class="col-10">
       <div class="filter-button">
         <div class="filter-option">Option 1</div>
         <div class="filter-option">Option 2</div>
@@ -89,7 +80,7 @@
 	    var dataLength = data.length;
 
 	    var list = document.getElementById('vendorList');
-	    
+/*
 	    for (i=0; i<dataLength; i++) {
 	    	list.innerHTML = list.innerHTML + "<li class='vendorlisting'>"
 	    									+ data[i].Name
@@ -99,7 +90,7 @@
 
 
 	     }
-
+*/
 	     // For Map View
 	     for (i=0; i<dataLength; i++) {
 	     	var infoMarkerContent = "<li class='vendorlisting'>"
