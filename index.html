@@ -15,43 +15,49 @@
   <!--JQuery
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   -->
+  <!--Google Fonts-->
+<link href="http://fonts.googleapis.com/css?family=Muli:400" rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Sanchez:400italic" rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 <div class="wrapper">
 
-  <header id = "header" class = "col-10">
+  <header id = "header" class = "col-9">
    <div class="titlebar col-7">
      Food for Health RVA
    </div>
 
     <div class="navbar col-3">
-      <div id="mapButton">
-        Map
+      <div class="navButton">
+        <a href = "#">Map</a>
       </div>
-      <div id="listButton">
-        List
+      |
+      <div class="navButton">
+        <a href = "#">List</a>
       </div>
     </div>
 
   </header>
 
   <div id="mainPanel" class = "col-12">
-    <div id="mapPanel" class="col-10">
-        Find Healthy Food Near You
-      <div id="Button">
+    <div id="mapPanel" class="col-9">
+        <p>Find Healthy Food Near You</p>
+    <div id = "mapButtons" class = "col-4">
+      <div class="Button">
         Search
       </div>
-      <div id="Button">
-        Use My Location
+      <div class="Button">
+          Use My Location
+      </div><p></p>
       </div>
-      <div id="mapCanvas" class = "col-10"></div>
+      <div id="mapCanvas" class = "col-9"></div>
     </div>
-    <div id="listPanel" class="col-10">
+    <div id="listPanel" class="col-9">
       <div class="filter-button">
-        <div class="filter-option">Option 1</div>
+<!--        <div class="filter-option">Option 1</div>
         <div class="filter-option">Option 2</div>
-        <div class="filter-option">Option 3</div>
+        <div class="filter-option">Option 3</div> -->
       </div>
       <ul id="vendorList">
       		<!--This will be filed in by the data pulled in from the spreadsheet-->
@@ -115,7 +121,7 @@ var map;
 function initialize() {
 	console.log("starting to create a google map");
 
-  var latlng = new google.maps.LatLng(37.4434800,-77.4653300);
+  var latlng = new google.maps.LatLng(37.540725,-77.436048);
   var mapOptions = {
     zoom: 11,
     center:latlng,

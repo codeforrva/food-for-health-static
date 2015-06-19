@@ -5,7 +5,7 @@
 
 .col-12 {width : 100%;}
 .col-11 {width : 91.67%;}
-.col-10 {width : 83.33%; margin : auto;}
+.col-10 {width : 83.33%;}
 .col-9 {width : 75%;}
 .col-8 {width : 66.67%;}
 .col-7 {width : 58.33%;}
@@ -23,26 +23,27 @@ html, body{
 
 /* unvisited link */
 a:link {
-    color: #3399FF;
+    color: #ED9E4E;
+    text-decoration : none;
 }
 
 /* visited link */
 a:visited {
-    color: #3399FF;
+    color: #ED9E4E;
 }
 
 /* mouse over link */
 a:hover {
-    color: #FF9900;
+    color: #ED9E4E;
 }
 
 /* selected link */
 a:active {
-    color: #FF9900;
+    color: #ED9E4E;
 }
 
 .wrapper {
-    font-family: Arial, serif;
+    font-family: 'Muli', sans-serif;
     height : 100%;
     margin : 0;
     padding : 0;
@@ -56,58 +57,76 @@ a:active {
 }
 
 .titlebar {
-    color : #DD3D31;
+    font-family : 'Sanchez', serif;
+    color : #88AABD;
     padding : 10;
     float : left;
     font-weight : bold;
     font-size: 3em;
+    font-style : italic;
 }
 
 .navbar {
     float : right;
     margin : 0 auto;
+    color : #ED9E4E;
+    vertical-align : middle;
+    padding-top : 1em;
+    text-align : right;
+    font-size : 1.5em;
+}
+
+.navButton {
+    display : inline;
+    padding-left : 0.25em;
+    padding-right : 0.25em;
 }
 
 #mainPanel {
-    background-color : #EBD0BF;
+    background-color : #F7E0B2;
     float :left;
     display : block;
-    margin : 0px;
+    margin : 0px auto;
     padding : 5px;
+    min-height : 500px;
 }
 
+#mapPanel {
+    color : #A16343;
+    margin : 0 auto;
+}
+
+#mapPanel p {
+    font-size : 2em;
+    text-align : center;
+}
 
 .btn {
     background : blue;
 }
 
-#mapButton {
-    display : inline;
-}
-
-#listButton {
-    display : inline;
-}
-
-#Button {
-    display : inline;
-    width : 150px;
-    margin: 8px;
+.Button {
+    display :inline;
     text-align : center;
-    background: #86A6BF;
+    background: #A16343;
     -webkit-border-radius: 28;
     -moz-border-radius: 28;
     border-radius: 28px;
-    font-family: Arial;
-    color: #ffffff;
+    color : #ffffff;
     font-size: 1.1em;
-    padding: 3px 6px 3px 6px;
+    padding: 4px 8px 4px 8px;
+    text-decoration: none;
+    margin : 8px;
+}
+
+.Button:hover {
+    background: #88AABD;
+    color : #ffffff;
     text-decoration: none;
 }
 
-#Button:hover {
-    background: #BB7B95;
-    text-decoration: none;
+#mapButtons {
+    margin : 0 auto;
 }
 
 #mapCanvas {
