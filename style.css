@@ -135,3 +135,23 @@ a:active {
     margin: 10px auto;
     padding: 0px;
 }
+
+#band1 {
+    height : 10px;
+    background-color : #A16343;
+}
+
+#band2 {
+    height : 10px;
+    background-color : #ED9E4E;
+}
+
+#band3 {
+    height : 10px;
+    background-color : #88AABD;
+}
+
+#band4 {
+    height : 10px;
+    background-color : #D3E7F2;
+}

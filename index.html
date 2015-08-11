@@ -10,7 +10,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.4.2/tabletop.js"></script>
 
   <!--Google Map-->
- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+ <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
 
   <!--JQuery
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -43,32 +43,40 @@
   <div id="mainPanel" class = "col-12">
     <div id="mapPanel" class="col-9">
         <p>Find Healthy Food Near You</p>
-    <div id = "mapButtons" class = "col-4">
-      <div class="Button">
+    <div id = "mapButtons" class = "col-6">
+<!--      <div class="Button">
         Search
       </div>
       <div class="Button">
           Use My Location
-      </div><p></p>
-      </div>
+  </div><p></p>
+  -->
+ 
+  <input id="address" placeholder="Enter your address" type="text" size="50">
+  <input type="button" class="Button" value="Search" onclick="codeAddress()">
+
+
+     </div>
       <div id="mapCanvas" class = "col-9"></div>
     </div>
     <div id="listPanel" class="col-9">
-      <div class="filter-button">
-<!--        <div class="filter-option">Option 1</div>
+<!--      <div class="filter-button">
+        <div class="filter-option">Option 1</div>
         <div class="filter-option">Option 2</div>
-        <div class="filter-option">Option 3</div> -->
-      </div>
+        <div class="filter-option">Option 3</div>
+      </div> -->
       <ul id="vendorList">
       		<!--This will be filed in by the data pulled in from the spreadsheet-->
       </ul>
     </div>
   </div>
+
 </div>
+
 
 </body>
 <script type="text/javascript">
-  	  window.onload = function() { initialize(); init();};
+	window.onload = function() { initialize(); init();};
 
 	  var public_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/1uu1PfCjgIrIVqzFoCN8iildL2yBYBfdR_4VEdf198tc/pubhtml';
 
@@ -86,6 +94,7 @@
 	    var dataLength = data.length;
 
 	    var list = document.getElementById('vendorList');
+
 /*
 	    for (i=0; i<dataLength; i++) {
 	    	list.innerHTML = list.innerHTML + "<li class='vendorlisting'>"
@@ -115,25 +124,52 @@
 // Note: This example requires that you consent to location sharing when
 // prompted by your browser. If you see a blank space instead of the map, this
 // is probably because you have denied permission for location sharing.
-
 var map;
+var geocoder;
 
 function initialize() {
-	console.log("starting to create a google map");
+console.log("starting to create a google map");
+  geocoder = new google.maps.Geocoder();
+//  var input = document.getElementById('address');
 
   var latlng = new google.maps.LatLng(37.540725,-77.436048);
   var mapOptions = {
-    zoom: 11,
+    zoom: 10,
     center:latlng,
             //backgroundColor: '#ff0000',
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
             //imageDefaultUI: true
   };
   map = new google.maps.Map(document.getElementById('mapCanvas'),
       mapOptions);
 
+  new google.maps.places.Autocomplete(
+		          (document.getElementById('address')), {
+			          types: ['geocode']
+				      });
+
   console.log(map);
+
 }
+
+function codeAddress() {
+  var address = document.getElementById('address').value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+    map.setCenter(results[0].geometry.location);
+    map.setZoom(13);
+      var marker = new google.maps.Marker({
+          map: map,
+	  position: results[0].geometry.location,
+	  title: 'Your location',
+	  icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+      });
+    } else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
+}
+
 
 // Add a marker to the map and push to the array.
 function addMarker(location, windowContent) {
@@ -142,6 +178,7 @@ function addMarker(location, windowContent) {
     position: location,
     map: map
   });
+ 
 
   // Create infowindow for marker
   var infowindow = new google.maps.InfoWindow({
@@ -151,7 +188,8 @@ function addMarker(location, windowContent) {
   // Attach openning the InfoWindow to clicking the marker
    google.maps.event.addListener(marker, 'click', function() {
     infowindow.open(map,marker);
-  });
+    });
+
 }
 
 </script>
