@@ -83,7 +83,7 @@ a:active {
 }
 
 #mainPanel {
-    background-color : #F7E0B2;
+  <!--  background-color : #F7E0B2; -->
     float :left;
     display : block;
     margin : 0px auto;
