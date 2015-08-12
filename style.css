@@ -54,13 +54,13 @@ a:active {
     display : block;
     margin : 0 auto;
     padding : 5px;
+    text-align : center;
 }
 
 .titlebar {
     font-family : 'Sanchez', serif;
     color : #88AABD;
     padding : 10;
-    float : left;
     font-weight : bold;
     font-size: 3em;
     font-style : italic;
