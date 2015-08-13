@@ -57,7 +57,6 @@ a:active {
     padding : 0;
 }
 
-
 #header {
     display : block;
     margin : 0 auto;
@@ -73,6 +72,7 @@ a:active {
 }
 
 #mapPanel {
+    display : block;
     color : #A16343;
     margin : 0 auto;
     text-align : center;
@@ -114,6 +114,7 @@ a:active {
 }
 
 #address {
-width : 50%;	
+width : 50%;
+min-width : 50px;
 font-size : 1em;
 }
