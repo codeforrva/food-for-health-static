@@ -16,9 +16,17 @@
 .col-2 {width : 16.67%;}
 .col-1 {width : 8.33%;}
 
-html, body{
+html{
     margin:0;
     padding:0;
+    height : 100%;
+}
+
+body {
+min-height : 100%;
+height : 100%;
+margin : 0;
+padding : 0;
 }
 
 /* unvisited link */
@@ -53,52 +61,27 @@ a:active {
 #header {
     display : block;
     margin : 0 auto;
-    padding : 5px;
+    padding : 0;
     text-align : center;
 }
 
 .titlebar {
     font-family : 'Sanchez', serif;
     color : #88AABD;
-    padding : 10;
-    font-weight : bold;
-    font-size: 3em;
-    font-style : italic;
-}
-
-.navbar {
-    float : right;
-    margin : 0 auto;
-    color : #ED9E4E;
-    vertical-align : middle;
     padding-top : 1em;
-    text-align : right;
-    font-size : 1.5em;
-}
-
-.navButton {
-    display : inline;
-    padding-left : 0.25em;
-    padding-right : 0.25em;
-}
-
-#mainPanel {
-  <!--  background-color : #F7E0B2; -->
-    float :left;
-    display : block;
-    margin : 0px auto;
-    padding : 5px;
-    min-height : 500px;
+    font-size: 2.5em;
 }
 
 #mapPanel {
     color : #A16343;
     margin : 0 auto;
+    text-align : center;
+    height : 80%;
+    min-height : 300px;
 }
 
 #mapPanel p {
-    font-size : 2em;
-    text-align : center;
+    font-size : 1.5em;
 }
 
 .btn {
@@ -108,50 +91,29 @@ a:active {
 .Button {
     display :inline;
     text-align : center;
-    background: #A16343;
-    -webkit-border-radius: 28;
-    -moz-border-radius: 28;
-    border-radius: 28px;
+    background: #88AABD;
+    border : 1px;
     color : #ffffff;
-    font-size: 1.1em;
+    font-size: 1em;
     padding: 4px 8px 4px 8px;
     text-decoration: none;
     margin : 8px;
 }
 
 .Button:hover {
-    background: #88AABD;
-    color : #ffffff;
+    color : #f0f0f0;
     text-decoration: none;
 }
 
-#mapButtons {
-    margin : 0 auto;
-}
-
 #mapCanvas {
-    height: 300px;
-    width: 600px;
-    margin: 10px auto;
+    min-height: 100px;
+    height : 75%;
+    width: 100%;
+    margin: 0px auto;
     padding: 0px;
 }
 
-#band1 {
-    height : 10px;
-    background-color : #A16343;
-}
-
-#band2 {
-    height : 10px;
-    background-color : #ED9E4E;
-}
-
-#band3 {
-    height : 10px;
-    background-color : #88AABD;
-}
-
-#band4 {
-    height : 10px;
-    background-color : #D3E7F2;
+#address {
+width : 50%;	
+font-size : 1em;
 }

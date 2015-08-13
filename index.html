@@ -17,53 +17,25 @@
   -->
   <!--Google Fonts-->
 <link href="http://fonts.googleapis.com/css?family=Muli:400" rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/css?family=Sanchez:400italic" rel='stylesheet' type='text/css'>
+<link href="http://fonts.googleapis.com/css?family=Sanchez:400" rel='stylesheet' type='text/css'>
 </head>
 <body>
 
 <div class="wrapper">
 
   <header id = "header" class = "col-12">
-     <div class="titlebar">
-     Food for Health RVA
-        </div>
-
-
+     <div class="titlebar">Food for Health RVA</div>
   </header>
-
-  <div id="mainPanel" class = "col-12">
     <div id="mapPanel" class="col-9">
         <p>Find Healthy Food Near You</p>
-    <div id = "mapButtons" class = "col-6">
-<!--      <div class="Button">
-        Search
-      </div>
-      <div class="Button">
-          Use My Location
-  </div><p></p>
-  -->
- 
-  <input id="address" placeholder="Enter your address" type="text" size="50">
+
+  <input id="address" placeholder="Enter your address" type="text">
   <input type="button" class="Button" value="Search" onclick="codeAddress()">
 
-
-     </div>
       <div id="mapCanvas" class = "col-9"></div>
-    </div>
-    <div id="listPanel" class="col-9">
-<!--      <div class="filter-button">
-        <div class="filter-option">Option 1</div>
-        <div class="filter-option">Option 2</div>
-        <div class="filter-option">Option 3</div>
-      </div> -->
-      <ul id="vendorList">
-      		<!--This will be filed in by the data pulled in from the spreadsheet-->
-      </ul>
-    </div>
-  </div>
-
 </div>
 
+</div>
 
 </body>
 <script type="text/javascript">
@@ -86,17 +58,6 @@
 
 	    var list = document.getElementById('vendorList');
 
-/*
-	    for (i=0; i<dataLength; i++) {
-	    	list.innerHTML = list.innerHTML + "<li class='vendorlisting'>"
-	    									+ data[i].Name
-	    									+ "<br>"
-	    									+ data[i].Address
-	    									+ "</li>";
-
-
-	     }
-*/
 	     // For Map View
 	     for (i=0; i<dataLength; i++) {
 	     	var infoMarkerContent = "<li class='vendorlisting'>"
